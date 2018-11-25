@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'contatos-add.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,14 +29,26 @@ class _PageContatosState extends State<PageContatos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Contatos')),
+      appBar: AppBar(
+        title: Text('Contatos'),
+        actions: <Widget>[
+          new FlatButton(
+            child: new Icon(Icons.search, color: Colors.white,),
+            onPressed: () => {},
+          )
+        ],
+      ),
       body: _buildBody(context),
       floatingActionButton: new FloatingActionButton(
         child: new Icon(Icons.add),
-        onPressed: () => {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddContato()),
+          );
+        }
       ),
       drawer: new Drawer(
-        
       ),
     );
   }
