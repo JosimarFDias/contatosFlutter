@@ -83,7 +83,31 @@ class _PageContatosState extends State<PageContatos> {
         children: [Text(record.celular), Text(record.email)]
       ),
       isThreeLine: record.email.isNotEmpty,
-      onTap: () => {},
+      onTap: () {_showDialog(record);},
+    );
+  }
+
+   // user defined function
+  void _showDialog(Contato contato) {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text('${contato.nome} ${contato.sobrenome}'),
+          content: new Text("Alert Dialog body"),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

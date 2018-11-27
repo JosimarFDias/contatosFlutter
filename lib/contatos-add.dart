@@ -31,7 +31,10 @@ class AddContato extends StatelessWidget {
           new FlatButton(
             onPressed: () {_saveContato(context);},
             child:(
-              new Text('SALVAR')
+              new Text(
+                'SALVAR',
+                style: TextStyle(color: Colors.white),
+              )
             )
           )
         ]
@@ -42,7 +45,9 @@ class AddContato extends StatelessWidget {
             autocorrect: false,
             autofocus: true,
             keyboardType: TextInputType.text,
-            decoration: InputDecoration(hintText: 'Nome'),
+            decoration: InputDecoration(
+              hintText: 'Nome'
+            ),
             onChanged: (value) {
               this.nome = value;
             }, 
